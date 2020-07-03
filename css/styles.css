@@ -311,13 +311,6 @@ footer {
 /* ///////////// Footer end ////////////// */
 
 /* ///////////// responsiveness ////////////// */
-/*Large devices (latop, above tablet)*/
-@media (min-width: 781px) {
-  .heading {
-    padding: 5% 0 0 0;
-  }
-}
-
 /*Medium devices (tablets, 800px and below for 780px ipad)*/
 @media (max-width: 780px) {
   nav {

@@ -72,23 +72,6 @@ for (i = 0; i < navClass.length; i++) {
   });
 }
 
-
-// Active on section while scrolling
-window.addEventListener('scroll', function() {
-
-  // Coudn't figure out how to loop through the section find section in window and incorporate scroll.
-  const scrollSection = document.getElementById('section-4');
-  const sectionHere = scrollSection.getBoundingClientRect();
-
-  if (sectionHere.top >= 0 && sectionHere.left >= 0 && sectionHere.right <= (window.innerWidth || document.documentElement.clientWidth) && sectionHere.bottom <= (window.innerHeight || document.documentElement.clientHeight)) {
-    //console.log('I see you');
-    scrollSection.classList.add('active');
-  } else {
-    //console.log('I CANT see you');
-    scrollSection.classList.remove('active');
-  }
-});
-
 // Back to top
 window.addEventListener('scroll', toTop);
 
@@ -105,19 +88,14 @@ function toTop() {
   }
 }
 
-
 // Active on section while scrolling
-/*const currentSection = document.getElementsByClassName('info');
-for (i = 0; i < currentSection.length; i++) {
-  //console.log(currentSection);
-  const ok = currentSection[i].focus();
-  if(ok.length > 0){
-    console.log(ok);
-  }
-}*/
+window.addEventListener('scroll', function() {
 
-// Active on section while scrolling
-/*window.addEventListener('scroll', function() {
+  // Active on navigation
+  const navClass = navUl.getElementsByClassName('navLinks');
+
+  // Sticky navigation
+  const navBar = document.querySelector('header');
 
   // Coudn't figure out how to loop through the section and incorporate scroll.
   // So gave up and did hard manual
@@ -137,41 +115,84 @@ for (i = 0; i < currentSection.length; i++) {
   const sectionHere6 = section6.getBoundingClientRect();
   const sectionHere7 = section7.getBoundingClientRect();
 
-  if (sectionHere2.top >= 0 && sectionHere2.left >= 0 && sectionHere2.right <= (window.innerWidth || document.documentElement.clientWidth) <= (window.innerHeight || document.documentElement.clientHeight)) {
-    console.log('I see you');
-    section2.classList.add('active');
-  } else {
-    console.log('I CANT see you');
-    section2.classList.remove('active');
-  }
-  if (sectionHere3.top >= 0 && sectionHere3.left >= 0 && sectionHere3.right <= (window.innerWidth || document.documentElement.clientWidth) <= (window.innerHeight || document.documentElement.clientHeight)) {
-    console.log('I see you');
-    section3.classList.add('active');
-  } else {
-    console.log('I CANT see you');
-    section3.classList.remove('active');
-  }
-  if (sectionHere4.top >= 0 && sectionHere4.left >= 0 && sectionHere4.right <= (window.innerWidth || document.documentElement.clientWidth) && sectionHere4.bottom <= (window.innerHeight || document.documentElement.clientHeight)) {
+  if (sectionHere1.top >= 0 && sectionHere1.left >= 0 && sectionHere1.right <= (window.innerWidth || document.documentElement.clientWidth) && sectionHere1.bottom <= (window.innerHeight || document.documentElement.clientHeight)) {
     //console.log('I see you');
-    section4.classList.add('active');
+    section1.classList.add('active');
+    navBar.classList.remove('sticky');
+    navClass[0].classList.add('nav-active');
   } else {
     //console.log('I CANT see you');
+    section1.classList.remove('active');
+    navBar.classList.add('sticky');
+    navClass[0].classList.remove('nav-active');
+  }
+  if (sectionHere2.top >= 0 && sectionHere2.left >= 0 && sectionHere2.right <= (window.innerWidth || document.documentElement.clientWidth) <= (window.innerHeight || document.documentElement.clientHeight)) {
+    section2.classList.add('active');
+    navClass[1].classList.add('nav-active');
+  } else {
+    section2.classList.remove('active');
+    navClass[1].classList.remove('nav-active');
+  }
+  if (sectionHere3.top >= 0 && sectionHere3.left >= 0 && sectionHere3.right <= (window.innerWidth || document.documentElement.clientWidth) && sectionHere3.bottom <= (window.innerHeight || document.documentElement.clientHeight)) {
+    section3.classList.add('active');
+    navClass[2].classList.add('nav-active');
+  } else {
+    section3.classList.remove('active');
+    navClass[2].classList.remove('nav-active');
+  }
+  if (sectionHere4.top >= 0 && sectionHere4.left >= 0 && sectionHere4.right <= (window.innerWidth || document.documentElement.clientWidth) && sectionHere4.bottom <= (window.innerHeight || document.documentElement.clientHeight)) {
+    section4.classList.add('active');
+    navClass[3].classList.add('nav-active');
+  } else {
     section4.classList.remove('active');
+    navClass[3].classList.remove('nav-active');
   }
   if (sectionHere5.top >= 0 && sectionHere5.left >= 0 && sectionHere5.right <= (window.innerWidth || document.documentElement.clientWidth) && sectionHere5.bottom <= (window.innerHeight || document.documentElement.clientHeight)) {
     section5.classList.add('active');
+    navClass[4].classList.add('nav-active');
   } else {
     section5.classList.remove('active');
+    navClass[4].classList.remove('nav-active');
   }
   if (sectionHere6.top >= 0 && sectionHere6.left >= 0 && sectionHere6.right <= (window.innerWidth || document.documentElement.clientWidth) && sectionHere6.bottom <= (window.innerHeight || document.documentElement.clientHeight)) {
     section6.classList.add('active');
+    navClass[5].classList.add('nav-active');
   } else {
     section6.classList.remove('active');
+    navClass[5].classList.remove('nav-active');
   }
   if (sectionHere7.top >= 0 && sectionHere7.left >= 0 && sectionHere7.right <= (window.innerWidth || document.documentElement.clientWidth) && sectionHere7.bottom <= (window.innerHeight || document.documentElement.clientHeight)) {
     section7.classList.add('active');
+    navClass[6].classList.add('nav-active');
   } else {
     section7.classList.remove('active');
+    navClass[6].classList.remove('nav-active');
+  }
+});
+
+
+// Active on section while scrolling
+/*const currentSection = document.getElementsByClassName('info');
+for (i = 0; i < currentSection.length; i++) {
+  //console.log(currentSection);
+  const ok = currentSection[i].focus();
+  if(ok.length > 0){
+    console.log(ok);
+  }
+}*/
+// Active on section while scrolling
+/*window.addEventListener('scroll', function() {
+
+  // Coudn't figure out how to loop through the section find section in window and incorporate scroll.
+  const scrollSection = document.getElementById('section-4');
+  const sectionHere = scrollSection.getBoundingClientRect();
+
+  if (sectionHere.top >= 0 && sectionHere.left >= 0 && sectionHere.right <= (window.innerWidth || document.documentElement.clientWidth) && sectionHere.bottom <= (window.innerHeight || document.documentElement.clientHeight)) {
+    //console.log('I see you');
+    scrollSection.classList.add('active');
+  } else {
+    //console.log('I CANT see you');
+    scrollSection.classList.remove('active');
   }
 });*/
 
